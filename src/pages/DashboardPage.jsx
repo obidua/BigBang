@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Circle, Search } from 'lucide-react';
 import Swal from 'sweetalert2';
 import { Sidebar } from '../components/Layout/Sidebar';
@@ -22,7 +21,6 @@ import { copyToClipboard } from '../../utils/helper';
 const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 
 const DashboardPage = () => {
-    const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('dashboard');
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     
@@ -299,7 +297,7 @@ const DashboardPage = () => {
 
                         <div className="mt-4">
                             <button
-                                onClick={() => navigate('/')}
+                                onClick={() => window.location.href = 'https://bigbang.support'}
                                 className="w-full px-4 py-2 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-800/50 hover:text-white transition-all duration-300 text-sm font-medium"
                             >
                                 ← Back to Website
