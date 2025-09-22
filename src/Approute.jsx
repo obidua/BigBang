@@ -10,7 +10,7 @@ import { IncomeChart } from './components/Income/IncomeChart';
 import { Copy, ExternalLink, User, MapPin, Link, Code } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { useAppKitAccount, useDisconnect } from '@reown/appkit/react';
-import StartSceen from './components/Registration/StartSceen';
+import LandingPage from './pages/LandingPage';
 import Register from './components/Registration/Register';
 import { copyToClipboard } from '../utils/helper';
 
@@ -207,9 +207,7 @@ const Approute = () => {
     // 1) Not connected → Start screen
     if (!isConnected || !address) {
         return (
-            <main className="flex-1 bg-gradient-to-b from-transparent to-slate-950/20">
-                <StartSceen />
-            </main>
+            <LandingPage />
         );
     }
 
