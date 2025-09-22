@@ -58,11 +58,6 @@ export const Sidebar = ({ activeTab, setActiveTab, onDisconnect, isSidebarOpen, 
               </div>
               <h1 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent neon-text">BigBang</h1>
             </div>
-            {isViewMode && userId && (
-              <div className="mt-2 px-2.5 py-1 bg-blue-950/50 text-cyan-300 border border-cyan-500/50 rounded-full text-xs font-medium glow-blue text-center">
-                View Mode • User #{userId}
-              </div>
-            )}
             <button
               onClick={() => setIsSidebarOpen(false)}
               className="lg:hidden p-1 text-gray-400 hover:text-white transition-colors"
