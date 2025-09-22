@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowLeft, Circle, TrendingUp, Users, Home, LogOut, User as UserIcon, MapPin, Link, Code, Copy, ExternalLink } from 'lucide-react';
+import { Menu, Circle, TrendingUp, Users, Home, LogOut, User as UserIcon, MapPin, Link, Code, Copy, ExternalLink } from 'lucide-react';
 import { StatsCards } from './Dashboard/StatsCards';
 import { OrbitProgress } from './Dashboard/OrbitProgress';
 import { RecentActivity } from './Dashboard/RecentActivity';
 import { OrbitsList } from './Orbits/OrbitsList';
 import { TeamTree } from './Team/TeamTree';
 import { IncomeChart } from './Income/IncomeChart';
+import { Sidebar } from './Layout/Sidebar';
 import { useStore } from '../../store/useStore';
 import { copyToClipboard, formatAddress } from '../../utils/helper';
 import SmarContract from './SmarContract';
@@ -14,6 +15,7 @@ import SmarContract from './SmarContract';
 
 export const ViewedUserProfile = ({ userId, onBack }) => {
   const [activeTab, setActiveTab] = useState('dashboard');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
 
 
@@ -254,59 +256,21 @@ export const ViewedUserProfile = ({ userId, onBack }) => {
 
   return (
     <div className="flex h-screen bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950 relative">
-      {/* Sidebar */}
-      <div className="hidden lg:flex w-64 bg-gradient-to-b from-gray-950 via-blue-950 to-purple-950 text-white h-screen flex-col border-r border-gray-700/50">
-        <div className="p-4 sm:p-6 border-b border-gray-700/50 bg-gradient-to-r from-transparent to-blue-950/20">
-          <div className="flex items-center gap-3">
-            <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-lg flex items-center justify-center glow-blue animate-pulse">
-              <Circle className="w-3 h-3 sm:w-5 sm:h-5" />
-            </div>
-            <div>
-              <h1 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent neon-text">BigBang</h1>
-              <p className="text-xs text-gray-400">User #{userId}</p>
-            </div>
-          </div>
-        </div>
+      {/* Mobile overlay */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-70 z-40 lg:hidden backdrop-blur-sm"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
 
-        <nav className="flex-1 p-3 sm:p-4 overflow-y-auto">
-          <ul className="space-y-1 sm:space-y-2">
-            {menuItems.map((item) => {
-              const Icon = item.icon;
-              return (
-                <li key={item.id}>
-                  <button
-                    onClick={() => setActiveTab(item.id)}
-                    className={`w-full flex items-center gap-3 px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg transition-all duration-200 text-sm sm:text-base ${activeTab === item.id
-                      ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg glow-blue'
-                      : 'text-gray-300 hover:bg-gray-800/50 hover:text-white hover:glow-blue'
-                      }`}
-                  >
-                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-                    <span className="font-medium">{item.label}</span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-
-        <div className="p-3 sm:p-4 border-t border-gray-700/50 space-y-2">
-          <button
-            onClick={onBack}
-            className="w-full flex items-center gap-3 px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg text-gray-300 hover:bg-gray-800/50 hover:text-white transition-all duration-200 text-sm sm:text-base"
-          >
-            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-            <span className="font-medium">Back</span>
-          </button>
-          <button
-            onClick={onBack}
-            className="w-full flex items-center gap-3 px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg text-gray-300 hover:bg-gradient-to-r hover:from-red-600 hover:to-red-700 hover:text-white transition-all duration-200 text-sm sm:text-base hover:glow-red"
-          >
-            <LogOut className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-            <span className="font-medium">Exit View</span>
-          </button>
-        </div>
-      </div>
+      <Sidebar
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        onDisconnect={onBack}
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSidebarOpen}
+      />
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden min-w-0">
@@ -315,16 +279,16 @@ export const ViewedUserProfile = ({ userId, onBack }) => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 sm:gap-4">
               <button
-                onClick={onBack}
+                onClick={() => setIsSidebarOpen(true)}
                 className="lg:hidden p-2 text-gray-400 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors"
               >
-                <ArrowLeft className="w-6 h-6" />
+                <Menu className="w-6 h-6" />
               </button>
               <h2 className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                 {menuItems.find(item => item.id === activeTab)?.label || 'Dashboard'}
               </h2>
               <div className="px-2.5 sm:px-3 py-1 bg-blue-950/50 text-cyan-300 border border-cyan-500/50 rounded-full text-xs sm:text-sm font-medium glow-blue">
-                View Mode
+                View Mode • User #{userId}
               </div>
             </div>
 
