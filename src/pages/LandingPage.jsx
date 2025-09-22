@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Circle, Search, Rocket, Users, TrendingUp, Shield, Zap, Globe, ChevronRight, Star, CheckCircle, Clock, History, Coins, Network, Lock, ArrowRight, DollarSign, Banknote, CreditCard, Bitcoin, Smartphone, Target, Award, Infinity, Lightning } from 'lucide-react';
+import { Circle, Search, Rocket, Users, TrendingUp, Shield, Zap, Globe, ChevronRight, Star, CheckCircle, Clock, History, Coins, Network, Lock, ArrowRight, DollarSign, Banknote, CreditCard, Bitcoin, Smartphone, Target, Award, Infinity, CloudLightning as Lightning } from 'lucide-react';
 import Swal from 'sweetalert2';
 import { WalletButton } from '../components/WalletConnection/WalletButton';
 import { ViewedUserProfile } from '../components/ViewedUserProfile';
