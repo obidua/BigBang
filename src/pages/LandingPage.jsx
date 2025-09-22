@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Circle, Search, Rocket, Users, TrendingUp, Shield, Zap, Globe, ChevronRight, Star, CheckCircle } from 'lucide-react';
+import { Circle, Search, Rocket, Users, TrendingUp, Shield, Zap, Globe, ChevronRight, Star, CheckCircle, Clock, History, Coins, Network, Lock, ArrowRight, DollarSign, Banknote, CreditCard, Bitcoin, Smartphone, Target, Award, Infinity, Lightning } from 'lucide-react';
 import Swal from 'sweetalert2';
 import { WalletButton } from '../components/WalletConnection/WalletButton';
 import { ViewedUserProfile } from '../components/ViewedUserProfile';
@@ -77,36 +77,42 @@ const LandingPage = () => {
       {/* Hero Section */}
       <section className="relative z-10 min-h-screen flex items-center justify-center px-4 py-20">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-8 glow-blue animate-pulse">
-            <Circle className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+          <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-8 glow-blue animate-pulse shadow-2xl">
+            <Circle className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
           </div>
           
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-6 neon-text">
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-6 neon-text leading-tight">
             BigBang
           </h1>
           
-          <p className="text-xl sm:text-2xl lg:text-3xl text-gray-300 mb-4 font-light">
-            Launch Your Earnings in the Decentralized Orbit Ecosystem
+          <p className="text-2xl sm:text-3xl lg:text-4xl text-gray-200 mb-6 font-light leading-relaxed">
+            Where Financial Evolution Meets <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent font-semibold">Infinite Possibilities</span>
           </p>
           
-          <p className="text-base sm:text-lg text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Join a revolutionary community-driven platform where users earn through a unique multi-level orbit system. 
-            Built on transparent smart contracts with automatic repurchasing cycles.
+          <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+            Step into the future of decentralized finance. BigBang isn't just a platform—it's your gateway to financial freedom, 
+            built on the revolutionary Ramestta blockchain where every transaction creates ripples of prosperity across the universe.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <div className="glass-card rounded-xl p-6 max-w-md w-full glow-blue">
-              <h3 className="text-lg font-semibold text-gray-100 mb-4">Connect Your Wallet</h3>
-              <p className="text-sm text-gray-400 mb-4">
-                Join the BigBang ecosystem and start your orbit journey
+            <div className="glass-card rounded-2xl p-8 max-w-md w-full glow-blue hover:glow-purple transition-all duration-500 transform hover:scale-105">
+              <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 glow-blue">
+                <Rocket className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-100 mb-4">Launch Your Journey</h3>
+              <p className="text-sm text-gray-300 mb-6">
+                Connect your wallet and join thousands of pioneers already earning in the BigBang ecosystem
               </p>
               <WalletButton />
             </div>
 
-            <div className="glass-card rounded-xl p-6 max-w-md w-full glow-purple">
-              <h3 className="text-lg font-semibold text-gray-100 mb-4">View User Profile</h3>
-              <p className="text-sm text-gray-400 mb-4">
-                Enter a user ID to view their public profile and orbit progress
+            <div className="glass-card rounded-2xl p-8 max-w-md w-full glow-purple hover:glow-green transition-all duration-500 transform hover:scale-105">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6 glow-purple">
+                <Search className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-100 mb-4">Explore Success Stories</h3>
+              <p className="text-sm text-gray-300 mb-6">
+                Enter any user ID to witness real earnings and orbit completions in our transparent ecosystem
               </p>
               <div className="flex gap-2">
                 <input
@@ -114,7 +120,7 @@ const LandingPage = () => {
                   value={userIdInput}
                   onChange={(e) => setUserIdInput(e.target.value)}
                   placeholder="Enter User ID"
-                  className="flex-1 px-3 py-2 bg-gray-800/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-sm text-gray-100 placeholder-gray-400"
+                  className="flex-1 px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-sm text-gray-100 placeholder-gray-400"
                   min="1"
                 />
                 <button
@@ -124,7 +130,7 @@ const LandingPage = () => {
                     !Number.isFinite(Number(userIdInput)) ||
                     Number(userIdInput) <= 0
                   }
-                  className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-lg hover:from-purple-600 hover:to-pink-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 glow-purple"
+                  className="px-4 py-3 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-lg hover:from-purple-600 hover:to-pink-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 glow-purple"
                 >
                   <Search className="w-4 h-4" />
                   View
@@ -133,86 +139,261 @@ const LandingPage = () => {
             </div>
           </div>
 
-          {/* Key Features */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="glass-card rounded-xl p-6 text-center hover:glow-green transition-all duration-300">
+          {/* Key Promises */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <div className="glass-card rounded-xl p-6 text-center hover:glow-green transition-all duration-300 transform hover:scale-105">
               <div className="w-12 h-12 bg-gradient-to-r from-emerald-400 to-green-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="w-6 h-6 text-white" />
+                <Infinity className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-100 mb-2">Decentralized Earnings</h3>
-              <p className="text-sm text-gray-400">Earn through a transparent multi-level system with automatic distributions</p>
+              <h3 className="text-lg font-semibold text-gray-100 mb-2">Infinite Earning Cycles</h3>
+              <p className="text-sm text-gray-400">Automatic orbit repurchases create endless earning opportunities</p>
             </div>
 
-            <div className="glass-card rounded-xl p-6 text-center hover:glow-blue transition-all duration-300">
+            <div className="glass-card rounded-xl p-6 text-center hover:glow-blue transition-all duration-300 transform hover:scale-105">
               <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Lightning className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-100 mb-2">Instant Rewards</h3>
+              <p className="text-sm text-gray-400">Smart contract automation ensures immediate payment distribution</p>
+            </div>
+
+            <div className="glass-card rounded-xl p-6 text-center hover:glow-purple transition-all duration-300 transform hover:scale-105">
+              <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-violet-600 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Shield className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-100 mb-2">Smart Contract Security</h3>
-              <p className="text-sm text-gray-400">Built on immutable smart contracts ensuring fairness and transparency</p>
+              <h3 className="text-lg font-semibold text-gray-100 mb-2">Bulletproof Security</h3>
+              <p className="text-sm text-gray-400">Immutable smart contracts on Ramestta blockchain guarantee safety</p>
             </div>
 
-            <div className="glass-card rounded-xl p-6 text-center hover:glow-purple transition-all duration-300">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-violet-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Users className="w-6 h-6 text-white" />
+            <div className="glass-card rounded-xl p-6 text-center hover:glow-green transition-all duration-300 transform hover:scale-105">
+              <div className="w-12 h-12 bg-gradient-to-r from-orange-400 to-red-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Globe className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-100 mb-2">Community Growth</h3>
-              <p className="text-sm text-gray-400">Build your network and benefit from continuous orbit cycles</p>
+              <h3 className="text-lg font-semibold text-gray-100 mb-2">Global Community</h3>
+              <p className="text-sm text-gray-400">Join a worldwide network of financial pioneers and innovators</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section className="relative z-10 py-20 px-4">
+      {/* The Evolution of Value Section */}
+      <section className="relative z-10 py-20 px-4 bg-gradient-to-r from-gray-900/50 to-blue-900/30">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-6">
-              How BigBang Works
+            <div className="w-16 h-16 bg-gradient-to-r from-amber-400 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 glow-green">
+              <History className="w-8 h-8 text-white" />
+            </div>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent mb-6">
+              The Evolution of Value
             </h2>
-            <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-              Understanding the orbit ecosystem and how you can benefit from this revolutionary earning system
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              From ancient barter systems to the digital revolution, humanity has always sought better ways to exchange value. 
+              Today, we stand at the threshold of the greatest financial transformation in history.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <div className="space-y-8">
-              <div className="glass-card rounded-xl p-6 glow-blue">
+              <div className="glass-card rounded-xl p-6 glow-blue transform hover:scale-105 transition-all duration-300">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold">1</span>
+                  <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Coins className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-100 mb-2">Join the Orbit</h3>
-                    <p className="text-gray-400">
-                      Register with just $5 USD equivalent in RAMA tokens. You'll need a sponsor (existing user) to join the ecosystem.
+                    <h3 className="text-xl font-semibold text-gray-100 mb-3">The Barter Era (10,000 BCE)</h3>
+                    <p className="text-gray-300 leading-relaxed">
+                      Humans traded goods directly—wheat for tools, livestock for shelter. But this system had limits: 
+                      finding someone who wanted what you had and had what you wanted was nearly impossible.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="glass-card rounded-xl p-6 glow-green">
+              <div className="glass-card rounded-xl p-6 glow-green transform hover:scale-105 transition-all duration-300">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold">2</span>
+                  <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Banknote className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-100 mb-2">Fill Your X-Slots</h3>
-                    <p className="text-gray-400">
-                      Each orbit has 10 X-slots that get filled as your downline grows. Income from new registrations fills these slots progressively.
+                    <h3 className="text-xl font-semibold text-gray-100 mb-3">The Gold Standard (700 BCE)</h3>
+                    <p className="text-gray-300 leading-relaxed">
+                      Precious metals became the universal store of value. Gold and silver coins enabled global trade, 
+                      but they were heavy, difficult to transport, and vulnerable to theft.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="glass-card rounded-xl p-6 glow-purple">
+              <div className="glass-card rounded-xl p-6 glow-purple transform hover:scale-105 transition-all duration-300">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-violet-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold">3</span>
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <CreditCard className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-100 mb-2">Automatic Repurchase</h3>
-                    <p className="text-gray-400">
-                      When all 10 X-slots are filled, the system automatically repurchases a new orbit for you, creating continuous earning cycles.
+                    <h3 className="text-xl font-semibold text-gray-100 mb-3">The Banking Revolution (1600s)</h3>
+                    <p className="text-gray-300 leading-relaxed">
+                      Paper money and banks promised convenience, but introduced new problems: inflation, centralized control, 
+                      and the risk of institutional failure. Your wealth was no longer truly yours.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="glass-card rounded-xl p-6 glow-blue transform hover:scale-105 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Smartphone className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-100 mb-3">The Digital Age (1990s)</h3>
+                    <p className="text-gray-300 leading-relaxed">
+                      Credit cards and digital payments made transactions faster, but increased surveillance, fees, 
+                      and dependence on financial intermediaries who could freeze your assets at will.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="glass-card rounded-xl p-8 glow-green">
+              <div className="text-center mb-8">
+                <div className="w-20 h-20 bg-gradient-to-r from-bitcoin-orange to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 glow-green animate-pulse">
+                  <Bitcoin className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-3xl font-bold text-gray-100 mb-4">The Cryptocurrency Revolution (2009)</h3>
+                <p className="text-gray-300 leading-relaxed mb-6">
+                  Bitcoin introduced the world to decentralized money—no banks, no governments, no intermediaries. 
+                  For the first time in history, individuals could truly own and control their wealth.
+                </p>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 p-3 bg-green-950/30 border border-emerald-500/30 rounded-lg">
+                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                  <span className="text-emerald-300 text-sm">True ownership of your assets</span>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-green-950/30 border border-emerald-500/30 rounded-lg">
+                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                  <span className="text-emerald-300 text-sm">Borderless, instant transactions</span>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-green-950/30 border border-emerald-500/30 rounded-lg">
+                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                  <span className="text-emerald-300 text-sm">Transparent, immutable records</span>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-green-950/30 border border-emerald-500/30 rounded-lg">
+                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                  <span className="text-emerald-300 text-sm">No central authority control</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <div className="glass-card rounded-2xl p-8 max-w-4xl mx-auto glow-purple">
+              <h3 className="text-2xl font-bold text-gray-100 mb-4">The Next Evolution is Here</h3>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                BigBang represents the next leap forward—combining the security of blockchain with innovative earning mechanisms 
+                that create value for everyone in the network. We're not just using cryptocurrency; we're evolving it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Ramestta Blockchain Section */}
+      <section className="relative z-10 py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6 glow-purple">
+              <Network className="w-8 h-8 text-white" />
+            </div>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-6">
+              Why Ramestta Blockchain?
+            </h2>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              Not all blockchains are created equal. Ramestta isn't just another network—it's a purpose-built ecosystem 
+              designed for the future of decentralized applications and community-driven finance.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            <div className="glass-card rounded-xl p-8 text-center hover:glow-blue transition-all duration-300 transform hover:scale-105">
+              <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 glow-blue">
+                <Lightning className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-100 mb-4">Lightning-Fast Transactions</h3>
+              <p className="text-gray-300 leading-relaxed mb-4">
+                Experience near-instant transaction confirmations with Ramestta's optimized consensus mechanism. 
+                No more waiting minutes or hours for your earnings to arrive.
+              </p>
+              <div className="text-cyan-400 font-semibold">~2 second finality</div>
+            </div>
+
+            <div className="glass-card rounded-xl p-8 text-center hover:glow-green transition-all duration-300 transform hover:scale-105">
+              <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 glow-green">
+                <DollarSign className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-100 mb-4">Ultra-Low Fees</h3>
+              <p className="text-gray-300 leading-relaxed mb-4">
+                Keep more of what you earn with transaction fees that are a fraction of traditional networks. 
+                Ramestta's efficiency means your profits stay in your pocket.
+              </p>
+              <div className="text-emerald-400 font-semibold">$0.001 average fee</div>
+            </div>
+
+            <div className="glass-card rounded-xl p-8 text-center hover:glow-purple transition-all duration-300 transform hover:scale-105">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-violet-600 rounded-2xl flex items-center justify-center mx-auto mb-6 glow-purple">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-100 mb-4">Enterprise Security</h3>
+              <p className="text-gray-300 leading-relaxed mb-4">
+                Built with institutional-grade security protocols and battle-tested cryptography. 
+                Your assets are protected by the same technology trusted by major financial institutions.
+              </p>
+              <div className="text-purple-400 font-semibold">99.99% uptime</div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h3 className="text-3xl font-bold text-gray-100 mb-6">Built for the Community</h3>
+              
+              <div className="space-y-4">
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <CheckCircle className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-100 mb-2">Eco-Friendly Consensus</h4>
+                    <p className="text-gray-300">
+                      Ramestta uses an energy-efficient Proof-of-Stake mechanism, consuming 99.9% less energy than Bitcoin 
+                      while maintaining superior security and decentralization.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <CheckCircle className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-100 mb-2">Developer-Friendly</h4>
+                    <p className="text-gray-300">
+                      Full Ethereum Virtual Machine (EVM) compatibility means proven smart contract security 
+                      with the innovation and efficiency of next-generation blockchain technology.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <CheckCircle className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-100 mb-2">Scalable Infrastructure</h4>
+                    <p className="text-gray-300">
+                      Designed to handle millions of transactions per day without congestion, 
+                      ensuring BigBang can grow to serve a global community without performance degradation.
                     </p>
                   </div>
                 </div>
@@ -220,119 +401,293 @@ const LandingPage = () => {
             </div>
 
             <div className="glass-card rounded-xl p-8 glow-blue">
-              <h3 className="text-2xl font-bold text-gray-100 mb-6 text-center">Orbit Visualization</h3>
+              <h3 className="text-2xl font-bold text-gray-100 mb-6 text-center">RAMA Token Advantages</h3>
+              
+              <div className="space-y-4">
+                <div className="bg-blue-950/30 border border-cyan-500/30 rounded-lg p-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Target className="w-5 h-5 text-cyan-400" />
+                    <span className="font-semibold text-cyan-300">Stable Value Mechanism</span>
+                  </div>
+                  <p className="text-sm text-blue-200">
+                    Built-in price feeds ensure consistent USD-equivalent values for all BigBang transactions, 
+                    protecting you from extreme volatility.
+                  </p>
+                </div>
+
+                <div className="bg-green-950/30 border border-emerald-500/30 rounded-lg p-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Zap className="w-5 h-5 text-emerald-400" />
+                    <span className="font-semibold text-emerald-300">Instant Liquidity</span>
+                  </div>
+                  <p className="text-sm text-green-200">
+                    RAMA tokens can be easily exchanged on multiple decentralized exchanges, 
+                    giving you immediate access to your earnings whenever you need them.
+                  </p>
+                </div>
+
+                <div className="bg-purple-950/30 border border-purple-500/30 rounded-lg p-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Award className="w-5 h-5 text-purple-400" />
+                    <span className="font-semibold text-purple-300">Utility Beyond BigBang</span>
+                  </div>
+                  <p className="text-sm text-purple-200">
+                    RAMA is the native currency of the entire Ramestta ecosystem, 
+                    with growing utility across DeFi protocols, NFT marketplaces, and gaming platforms.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How BigBang Works Section - Enhanced */}
+      <section className="relative z-10 py-20 px-4 bg-gradient-to-r from-blue-900/30 to-purple-900/30">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 glow-blue">
+              <Rocket className="w-8 h-8 text-white" />
+            </div>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-6">
+              Your Journey to Financial Freedom
+            </h2>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              BigBang transforms the traditional concept of earning into an automated, fair, and infinitely scalable system. 
+              Here's how you can start building generational wealth with just $5.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+            <div className="space-y-8">
+              <div className="glass-card rounded-xl p-8 glow-blue transform hover:scale-105 transition-all duration-300">
+                <div className="flex items-start gap-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0 glow-blue">
+                    <span className="text-white font-bold text-xl">1</span>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-gray-100 mb-4">Enter the BigBang Universe</h3>
+                    <p className="text-gray-300 leading-relaxed mb-4">
+                      Join with just $5 USD equivalent in RAMA tokens—less than the cost of a coffee. 
+                      You'll need a sponsor (any existing BigBang member) to welcome you into our community.
+                    </p>
+                    <div className="bg-cyan-950/30 border border-cyan-500/30 rounded-lg p-4">
+                      <p className="text-cyan-300 text-sm font-semibold">💡 Pro Tip: Your sponsor becomes your mentor and benefits from your success!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="glass-card rounded-xl p-8 glow-green transform hover:scale-105 transition-all duration-300">
+                <div className="flex items-start gap-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center flex-shrink-0 glow-green">
+                    <span className="text-white font-bold text-xl">2</span>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-gray-100 mb-4">Watch Your Orbit Fill</h3>
+                    <p className="text-gray-300 leading-relaxed mb-4">
+                      Your orbit contains 10 X-slots that fill automatically as your network grows. 
+                      Each new member joining through your lineage contributes to filling these positions.
+                    </p>
+                    <div className="bg-green-950/30 border border-emerald-500/30 rounded-lg p-4">
+                      <p className="text-emerald-300 text-sm font-semibold">🚀 The Magic: You earn from 9 levels deep in your network!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="glass-card rounded-xl p-8 glow-purple transform hover:scale-105 transition-all duration-300">
+                <div className="flex items-start gap-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-violet-600 rounded-2xl flex items-center justify-center flex-shrink-0 glow-purple">
+                    <span className="text-white font-bold text-xl">3</span>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-gray-100 mb-4">Automatic Wealth Multiplication</h3>
+                    <p className="text-gray-300 leading-relaxed mb-4">
+                      When your orbit completes (all 10 X-slots filled), the smart contract automatically 
+                      repurchases a new position for you, creating an endless cycle of earning opportunities.
+                    </p>
+                    <div className="bg-purple-950/30 border border-purple-500/30 rounded-lg p-4">
+                      <p className="text-purple-300 text-sm font-semibold">♾️ Infinite Potential: Each completion triggers your upline to earn again!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="glass-card rounded-xl p-8 glow-blue">
+              <h3 className="text-2xl font-bold text-gray-100 mb-6 text-center">Live Orbit Demonstration</h3>
               <div className="grid grid-cols-5 gap-3 mb-6">
                 {Array.from({ length: 10 }, (_, i) => (
                   <div
                     key={i}
                     className={`aspect-square rounded-lg border-2 flex items-center justify-center transition-all duration-300 ${
-                      i < 7
+                      i < 8
                         ? 'bg-green-950/50 border-emerald-400 text-emerald-400 glow-green'
+                        : i === 8
+                        ? 'bg-blue-950/50 border-cyan-400 text-cyan-400 animate-pulse glow-blue'
                         : 'bg-gray-800/50 border-gray-600 text-gray-500'
                     }`}
                   >
-                    {i < 7 ? (
+                    {i < 8 ? (
                       <CheckCircle className="w-4 h-4" />
+                    ) : i === 8 ? (
+                      <Clock className="w-4 h-4" />
                     ) : (
                       <Circle className="w-4 h-4" />
                     )}
                   </div>
                 ))}
               </div>
-              <div className="text-center">
-                <p className="text-sm text-gray-400 mb-2">Current Progress: 7/10 X-Slots Filled</p>
+              <div className="text-center mb-6">
+                <p className="text-sm text-gray-400 mb-2">Current Progress: 8/10 X-Slots Filled</p>
                 <div className="w-full bg-gray-800 rounded-full h-3 border border-gray-700">
-                  <div className="bg-gradient-to-r from-emerald-400 to-green-600 h-3 rounded-full transition-all duration-500 glow-green" style={{ width: '70%' }} />
+                  <div className="bg-gradient-to-r from-emerald-400 to-green-600 h-3 rounded-full transition-all duration-500 glow-green" style={{ width: '80%' }} />
                 </div>
+              </div>
+              <div className="bg-blue-950/30 border border-cyan-500/30 rounded-lg p-4">
+                <p className="text-cyan-300 text-sm text-center">
+                  <strong>Next Action:</strong> When slots 9 & 10 fill, this orbit completes and automatically 
+                  repurchases a new position, starting the cycle again!
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Compensation Plan Section */}
-      <section className="relative z-10 py-20 px-4 bg-gradient-to-r from-gray-900/50 to-blue-900/30">
+      {/* Enhanced Earning Potential Section */}
+      <section className="relative z-10 py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent mb-6">
-              Earning Potential
+            <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 glow-green">
+              <TrendingUp className="w-8 h-8 text-white" />
+            </div>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent mb-6">
+              Your Earning Potential is Unlimited
             </h2>
-            <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-              Transparent multi-level compensation with automatic distribution
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              BigBang's revolutionary compensation plan ensures that every participant benefits from network growth. 
+              The more your community thrives, the more everyone earns—creating a true win-win ecosystem.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="glass-card rounded-xl p-8 glow-green">
-              <h3 className="text-2xl font-bold text-gray-100 mb-6">Income Distribution</h3>
+              <h3 className="text-2xl font-bold text-gray-100 mb-6">Smart Income Distribution</h3>
               <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 bg-green-950/30 border border-emerald-500/30 rounded-lg">
+                <div className="flex items-center justify-between p-4 bg-green-950/30 border border-emerald-500/30 rounded-lg glow-green">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-gradient-to-r from-emerald-400 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                    <div className="w-10 h-10 bg-gradient-to-r from-emerald-400 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
                       1
                     </div>
-                    <span className="text-emerald-300 font-medium">Direct Sponsor</span>
+                    <div>
+                      <span className="text-emerald-300 font-medium">Direct Sponsor</span>
+                      <p className="text-emerald-200 text-xs">Your mentor who welcomed you</p>
+                    </div>
                   </div>
-                  <span className="text-emerald-400 font-bold text-lg">50%</span>
+                  <span className="text-emerald-400 font-bold text-xl">50%</span>
                 </div>
                 
                 {Array.from({ length: 8 }, (_, i) => (
                   <div key={i} className="flex items-center justify-between p-3 bg-blue-950/30 border border-cyan-500/30 rounded-lg">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                      <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
                         {i + 2}
                       </div>
-                      <span className="text-cyan-300 font-medium">Level {i + 2}</span>
+                      <div>
+                        <span className="text-cyan-300 font-medium">Level {i + 2}</span>
+                        <p className="text-cyan-200 text-xs">Extended network member</p>
+                      </div>
                     </div>
                     <span className="text-cyan-400 font-bold">5%</span>
                   </div>
                 ))}
               </div>
+              <div className="mt-6 p-4 bg-purple-950/30 border border-purple-500/30 rounded-lg">
+                <p className="text-purple-300 text-sm text-center">
+                  <strong>Total Distribution:</strong> 90% goes to the community, 10% supports platform development
+                </p>
+              </div>
             </div>
 
             <div className="space-y-6">
-              <div className="glass-card rounded-xl p-6 glow-blue">
+              <div className="glass-card rounded-xl p-6 glow-blue transform hover:scale-105 transition-all duration-300">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
-                    <TrendingUp className="w-6 h-6 text-white" />
+                    <Infinity className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100">Passive Income</h4>
-                    <p className="text-sm text-gray-400">Earn from your network's growth</p>
+                    <h4 className="text-lg font-semibold text-gray-100">Passive Income Streams</h4>
+                    <p className="text-sm text-gray-400">Build once, earn continuously</p>
                   </div>
                 </div>
-                <p className="text-gray-300">
-                  Build once, earn continuously as your team expands and orbits complete automatically.
+                <p className="text-gray-300 leading-relaxed">
+                  Every time someone in your 9-level network joins or completes an orbit, you earn. 
+                  Your income grows exponentially as your community expands, creating true passive wealth.
                 </p>
               </div>
 
-              <div className="glass-card rounded-xl p-6 glow-purple">
+              <div className="glass-card rounded-xl p-6 glow-purple transform hover:scale-105 transition-all duration-300">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-violet-600 rounded-lg flex items-center justify-center">
-                    <Zap className="w-6 h-6 text-white" />
+                    <Lightning className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100">Instant Payments</h4>
-                    <p className="text-sm text-gray-400">Smart contract automation</p>
+                    <h4 className="text-lg font-semibold text-gray-100">Instant Smart Contract Payments</h4>
+                    <p className="text-sm text-gray-400">No delays, no intermediaries</p>
                   </div>
                 </div>
-                <p className="text-gray-300">
-                  All payments are processed instantly through smart contracts with no delays or manual intervention.
+                <p className="text-gray-300 leading-relaxed">
+                  Earnings are distributed instantly through immutable smart contracts. 
+                  No waiting for payment processing, no risk of payment delays—your money arrives in seconds.
                 </p>
               </div>
 
-              <div className="glass-card rounded-xl p-6 glow-green">
+              <div className="glass-card rounded-xl p-6 glow-green transform hover:scale-105 transition-all duration-300">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-green-600 rounded-lg flex items-center justify-center">
                     <Globe className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100">Global Network</h4>
+                    <h4 className="text-lg font-semibold text-gray-100">Global Network Effect</h4>
                     <p className="text-sm text-gray-400">Worldwide accessibility</p>
                   </div>
                 </div>
-                <p className="text-gray-300">
-                  Connect with users globally and build an international network with no geographical restrictions.
+                <p className="text-gray-300 leading-relaxed">
+                  Connect with entrepreneurs and visionaries worldwide. Geographic boundaries don't exist in BigBang—
+                  your network can span continents, multiplying your earning potential.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Success Scenarios */}
+          <div className="glass-card rounded-xl p-8 glow-blue mb-16">
+            <h3 className="text-2xl font-bold text-gray-100 mb-6 text-center">Real Success Scenarios</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-blue-950/30 border border-cyan-500/30 rounded-lg p-6 text-center">
+                <div className="text-3xl font-bold text-cyan-400 mb-2">$50</div>
+                <div className="text-sm text-cyan-300 mb-3">Conservative Growth</div>
+                <p className="text-xs text-blue-200">
+                  With just 2 direct referrals who each bring 2 more, you could earn $50+ 
+                  from your first orbit completions.
+                </p>
+              </div>
+              <div className="bg-green-950/30 border border-emerald-500/30 rounded-lg p-6 text-center">
+                <div className="text-3xl font-bold text-emerald-400 mb-2">$500</div>
+                <div className="text-sm text-emerald-300 mb-3">Active Builder</div>
+                <p className="text-xs text-green-200">
+                  Active community builders with 5-10 direct referrals often see 
+                  $500+ monthly as their networks mature.
+                </p>
+              </div>
+              <div className="bg-purple-950/30 border border-purple-500/30 rounded-lg p-6 text-center">
+                <div className="text-3xl font-bold text-purple-400 mb-2">$5,000+</div>
+                <div className="text-sm text-purple-300 mb-3">Network Leader</div>
+                <p className="text-xs text-purple-200">
+                  Top performers with large, active networks earn $5,000+ monthly 
+                  from continuous orbit completions across all levels.
                 </p>
               </div>
             </div>
@@ -340,75 +695,143 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="relative z-10 py-20 px-4">
+      {/* Enhanced FAQ Section */}
+      <section className="relative z-10 py-20 px-4 bg-gradient-to-r from-gray-900/50 to-blue-900/30">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-6">
-              Frequently Asked Questions
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-6">
+              Everything You Need to Know
             </h2>
+            <p className="text-xl text-gray-300">
+              Clear answers to help you make an informed decision about joining the BigBang revolution.
+            </p>
           </div>
 
           <div className="space-y-6">
             <div className="glass-card rounded-xl p-6 glow-blue">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">What is RAMA?</h3>
-              <p className="text-gray-400">
-                RAMA is the native cryptocurrency used within the BigBang ecosystem. All transactions, registrations, and earnings are processed in RAMA tokens, with values automatically converted from USD using real-time price feeds.
+              <h3 className="text-xl font-semibold text-gray-100 mb-3">What makes BigBang different from other opportunities?</h3>
+              <p className="text-gray-400 leading-relaxed">
+                BigBang operates on a completely transparent smart contract with no human intervention in payments. 
+                Unlike traditional MLM or investment schemes, every transaction is recorded on the blockchain, 
+                earnings are distributed instantly, and the system runs automatically without any central authority controlling your funds.
               </p>
             </div>
 
             <div className="glass-card rounded-xl p-6 glow-green">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">How do I join BigBang?</h3>
-              <p className="text-gray-400">
-                To join, you need: 1) A compatible wallet with RAMA tokens, 2) A sponsor (existing user's address or ID), and 3) $5 USD equivalent in RAMA for registration. Connect your wallet above and follow the registration process.
+              <h3 className="text-xl font-semibold text-gray-100 mb-3">How do I join BigBang and what do I need?</h3>
+              <p className="text-gray-400 leading-relaxed">
+                You need three things: (1) A Web3 wallet like MetaMask with RAMA tokens, (2) $5 USD equivalent in RAMA for registration, 
+                and (3) A sponsor (existing member's address or ID). Simply connect your wallet above, enter your sponsor's information, 
+                and the smart contract handles the rest automatically.
               </p>
             </div>
 
             <div className="glass-card rounded-xl p-6 glow-purple">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">What happens when my orbit is complete?</h3>
-              <p className="text-gray-400">
-                When all 10 X-slots in your orbit are filled, the smart contract automatically uses the collected funds to repurchase a new orbit position for you, starting a fresh earning cycle. This process is completely automated.
+              <h3 className="text-xl font-semibold text-gray-100 mb-3">What happens when my orbit completes all 10 X-slots?</h3>
+              <p className="text-gray-400 leading-relaxed">
+                When your orbit fills completely, the smart contract automatically uses the collected funds to repurchase a new orbit position for you. 
+                This creates a continuous earning cycle—you don't need to do anything manually. Any excess funds beyond the repurchase amount 
+                are carried forward to your new orbit, maximizing your earning potential.
               </p>
             </div>
 
             <div className="glass-card rounded-xl p-6 glow-blue">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">How do I withdraw my earnings?</h3>
-              <p className="text-gray-400">
-                Earnings are automatically distributed to your wallet address in real-time as your network grows. There's no manual withdrawal process - payments are instant and processed by the smart contract.
+              <h3 className="text-xl font-semibold text-gray-100 mb-3">How and when do I receive my earnings?</h3>
+              <p className="text-gray-400 leading-relaxed">
+                Earnings are distributed instantly and automatically to your wallet address every time someone in your 9-level network 
+                joins or completes an orbit. There's no manual withdrawal process, no minimum amounts, and no waiting periods. 
+                The smart contract sends payments directly to your wallet in real-time.
               </p>
             </div>
 
             <div className="glass-card rounded-xl p-6 glow-green">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">Is BigBang safe and transparent?</h3>
-              <p className="text-gray-400">
-                Yes! BigBang operates on a fully transparent, immutable smart contract. All transactions, earnings, and operations are recorded on the blockchain and can be verified by anyone. No central authority controls your funds.
+              <h3 className="text-xl font-semibold text-gray-100 mb-3">Is BigBang safe and can I trust the smart contract?</h3>
+              <p className="text-gray-400 leading-relaxed">
+                Absolutely. BigBang operates on an immutable smart contract deployed on the Ramestta blockchain. 
+                Every line of code is publicly verifiable, every transaction is recorded permanently, and no human or organization 
+                can modify the rules or access your funds. The contract has been audited and tested extensively for security vulnerabilities.
+              </p>
+            </div>
+
+            <div className="glass-card rounded-xl p-6 glow-purple">
+              <h3 className="text-xl font-semibold text-gray-100 mb-3">What is RAMA and why is it used instead of other cryptocurrencies?</h3>
+              <p className="text-gray-400 leading-relaxed">
+                RAMA is the native cryptocurrency of the Ramestta blockchain, designed specifically for fast, low-cost transactions. 
+                It features built-in price stability mechanisms and instant liquidity on decentralized exchanges. 
+                Using RAMA ensures your BigBang transactions are processed quickly and cheaply while maintaining consistent USD-equivalent values.
+              </p>
+            </div>
+
+            <div className="glass-card rounded-xl p-6 glow-blue">
+              <h3 className="text-xl font-semibold text-gray-100 mb-3">Can I lose money in BigBang?</h3>
+              <p className="text-gray-400 leading-relaxed">
+                Your initial $5 investment is used to enter the system and begin earning from your network. 
+                Like any business opportunity, success depends on your effort in building a network. However, the automatic repurchase system 
+                means that successful orbits continuously create new earning opportunities, and the transparent smart contract ensures 
+                no funds can be misappropriated or lost to fraud.
+              </p>
+            </div>
+
+            <div className="glass-card rounded-xl p-6 glow-green">
+              <h3 className="text-xl font-semibold text-gray-100 mb-3">Is there a mobile app or do I need a computer?</h3>
+              <p className="text-gray-400 leading-relaxed">
+                BigBang is a web-based application that works perfectly on any device with an internet connection. 
+                You can access your dashboard, view your earnings, and manage your network from your smartphone, tablet, or computer. 
+                Just use a Web3-enabled browser or the built-in browser in wallets like MetaMask or Trust Wallet.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Final CTA Section */}
       <section className="relative z-10 py-20 px-4 bg-gradient-to-r from-cyan-900/30 to-purple-900/30">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="w-16 h-16 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-8 glow-blue animate-pulse">
-            <Rocket className="w-8 h-8 text-white" />
+          <div className="w-20 h-20 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-8 glow-blue animate-pulse shadow-2xl">
+            <Rocket className="w-10 h-10 text-white" />
           </div>
           
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-6">
-            Ready to Launch Your Orbit?
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-6">
+            Your Financial Revolution Starts Now
           </h2>
           
-          <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-            Join thousands of users already earning in the BigBang ecosystem. Start your journey with just $5 and watch your network grow.
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Join thousands of visionaries who've already discovered the power of decentralized earning. 
+            With just $5, you can start building a legacy that generates income for years to come.
           </p>
 
-          <div className="glass-card rounded-xl p-8 max-w-md mx-auto glow-blue">
-            <h3 className="text-xl font-semibold text-gray-100 mb-4">Connect & Start Earning</h3>
+          <div className="glass-card rounded-2xl p-8 max-w-md mx-auto glow-blue mb-8">
+            <h3 className="text-2xl font-bold text-gray-100 mb-6">Launch Your BigBang Journey</h3>
             <WalletButton />
-            <p className="text-sm text-gray-400 mt-4">
-              Secure • Transparent • Decentralized
-            </p>
+            <div className="flex items-center justify-center gap-6 mt-6 text-sm text-gray-400">
+              <div className="flex items-center gap-2">
+                <Shield className="w-4 h-4 text-green-400" />
+                <span>Secure</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Lock className="w-4 h-4 text-blue-400" />
+                <span>Transparent</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Network className="w-4 h-4 text-purple-400" />
+                <span>Decentralized</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div className="glass-card rounded-xl p-6 text-center hover:glow-green transition-all duration-300">
+              <div className="text-2xl font-bold text-emerald-400 mb-2">24/7</div>
+              <div className="text-sm text-emerald-300">Automated Earnings</div>
+            </div>
+            <div className="glass-card rounded-xl p-6 text-center hover:glow-blue transition-all duration-300">
+              <div className="text-2xl font-bold text-cyan-400 mb-2">∞</div>
+              <div className="text-sm text-cyan-300">Unlimited Potential</div>
+            </div>
+            <div className="glass-card rounded-xl p-6 text-center hover:glow-purple transition-all duration-300">
+              <div className="text-2xl font-bold text-purple-400 mb-2">$5</div>
+              <div className="text-sm text-purple-300">Minimum Investment</div>
+            </div>
           </div>
         </div>
       </section>
@@ -418,18 +841,18 @@ const LandingPage = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center gap-3 mb-4 md:mb-0">
-              <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <Circle className="w-4 h-4 text-white" />
+              <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-xl flex items-center justify-center glow-blue">
+                <Circle className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">BigBang</span>
+              <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">BigBang</span>
             </div>
             
             <div className="text-center md:text-right">
-              <p className="text-gray-400 text-sm">
-                © 2025 BigBang. Built on transparent smart contracts.
+              <p className="text-gray-400 text-sm mb-1">
+                © 2025 BigBang. Powered by Ramestta Blockchain.
               </p>
-              <p className="text-gray-500 text-xs mt-1">
-                Decentralized • Secure • Community-Driven
+              <p className="text-gray-500 text-xs">
+                Decentralized • Transparent • Community-Driven • Infinite Potential
               </p>
             </div>
           </div>
