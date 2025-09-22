@@ -95,6 +95,11 @@ export const Sidebar = ({ activeTab, setActiveTab, onDisconnect, isSidebarOpen, 
         </nav>
 
         <div className="p-3 sm:p-4 border-t border-gray-700/50">
+          {isViewMode && userId && (
+            <div className="mb-3 px-2.5 py-1 bg-blue-950/50 text-cyan-300 border border-cyan-500/50 rounded-full text-xs font-medium glow-blue text-center">
+              View Mode • User #{userId}
+            </div>
+          )}
           <button
             onClick={handleDisconnect}
             className="w-full flex items-center gap-3 px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg text-gray-300 hover:bg-gradient-to-r hover:from-red-600 hover:to-red-700 hover:text-white transition-all duration-200 text-sm sm:text-base hover:glow-red"
