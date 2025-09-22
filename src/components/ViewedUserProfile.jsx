@@ -17,6 +17,9 @@ export const ViewedUserProfile = ({ userId, onBack }) => {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  // Debug log to check userId value
+  console.log('ViewedUserProfile userId:', userId, 'type:', typeof userId);
+
 
 
 
