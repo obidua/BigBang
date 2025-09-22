@@ -95,7 +95,7 @@ export const Sidebar = ({ activeTab, setActiveTab, onDisconnect, isSidebarOpen, 
         </nav>
 
         <div className="p-3 sm:p-4 border-t border-gray-700/50">
-          {isViewMode && userId && (
+          {isViewMode && userId != null && (
             <div className="mb-3 px-2.5 py-1 bg-blue-950/50 text-cyan-300 border border-cyan-500/50 rounded-full text-xs font-medium glow-blue text-center">
               View Mode • User #{userId}
             </div>

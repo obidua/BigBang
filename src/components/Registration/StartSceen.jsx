@@ -49,7 +49,7 @@ const StartSceen = () => {
 
       // Save and switch to view mode
       localStorage.setItem('userAddress', addr);
-      localStorage.setItem('viewUserId', String(numericId)); // optional
+      localStorage.setItem('viewUserId', String(numericId));
       setViewUserExist(true);
     } catch (error) {
       console.error('checkUserById failed:', error);
@@ -64,7 +64,7 @@ const StartSceen = () => {
   if (viewUserExist) {
     return (
       <ViewedUserProfile
-        userId={Number(localStorage.getItem('viewUserId') || userIdInput) || undefined}
+        userId={Number(localStorage.getItem('viewUserId') || userIdInput || '0')}
         onBack={() => {
           localStorage.removeItem('userAddress');
           localStorage.removeItem('viewUserId');
