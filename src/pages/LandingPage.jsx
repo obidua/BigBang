@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Circle, Search, Rocket, Users, TrendingUp, Shield, Zap, Globe, ChevronRight, Star, CheckCircle, Clock, History, Coins, Network, Lock, ArrowRight, DollarSign, Banknote, CreditCard, Bitcoin, Smartphone, Target, Award, Infinity, CloudLightning as Lightning } from 'lucide-react';
+import { Circle, Search, Rocket, Users, TrendingUp, Shield, Zap, Globe, ChevronRight, Star, CheckCircle, Clock, History, Coins, Network, Lock, ArrowRight, DollarSign, Banknote, CreditCard, Bitcoin, Smartphone, Target, Award, Infinity, CloudLightning as Lightning, HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import Swal from 'sweetalert2';
 import { WalletButton } from '../components/WalletConnection/WalletButton';
 import { ViewedUserProfile } from '../components/ViewedUserProfile';
@@ -12,6 +12,7 @@ const LandingPage = () => {
   const checkUserById = useStore((s) => s.checkUserById);
   const [userIdInput, setUserIdInput] = useState('');
   const [viewUserExist, setViewUserExist] = useState(false);
+  const [activeFAQ, setActiveFAQ] = useState(null);
 
   const handleViewUserById = async () => {
     try {
@@ -710,78 +711,95 @@ const LandingPage = () => {
             </p>
           </div>
 
-          <div className="space-y-6">
-            <div className="glass-card rounded-xl p-6 glow-blue">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">What makes BigBang different from other opportunities?</h3>
-              <p className="text-gray-400 leading-relaxed">
-                BigBang operates on a completely transparent smart contract with no human intervention in payments. 
-                Unlike traditional MLM or investment schemes, every transaction is recorded on the blockchain, 
-                earnings are distributed instantly, and the system runs automatically without any central authority controlling your funds.
-              </p>
-            </div>
+          <div className="space-y-4">
+            {[
+              {
+                question: "What is RAMA and why is it used in BigBang?",
+                answer: "RAMA is the native cryptocurrency of the Ramestta blockchain, designed for ultra-fast transactions and minimal fees. BigBang uses RAMA because it offers instant payments (2-second confirmations), extremely low transaction costs ($0.001), and enterprise-grade security. Unlike volatile cryptocurrencies, RAMA maintains stability through advanced tokenomics, making it perfect for consistent earnings and reliable value storage."
+              },
+              {
+                question: "How do I join BigBang and what do I need?",
+                answer: "Joining BigBang is simple! You need: (1) A Web3 wallet like MetaMask, (2) Some RAMA tokens for the joining fee, and (3) A sponsor's address or ID. The current joining fee is dynamically calculated but typically around $25 worth of RAMA. Once you connect your wallet and complete registration, you'll immediately start your first orbit and begin earning from your network's activity."
+              },
+              {
+                question: "How much can I realistically earn with BigBang?",
+                answer: "Your earnings depend on your network activity and growth. Conservative participants often earn $50-200 monthly through passive income. Active builders who share BigBang and help others join typically earn $500-2000 monthly. Network leaders with large, active teams can earn $5000+ monthly. Remember, BigBang offers infinite earning cycles - every time you complete 10 X-slots, you automatically repurchase and start earning again."
+              },
+              {
+                question: "What are X-slots and how do they work?",
+                answer: "X-slots represent positions in your earning orbit. Each orbit has 10 X-slots that fill as people join your network or their networks grow. When someone in your 9-level network joins or repurchases, you receive income and fill an X-slot. Once all 10 X-slots are filled, you automatically repurchase (start a new orbit) and continue earning. This creates infinite earning cycles with no manual intervention required."
+              },
+              {
+                question: "Is BigBang safe and legitimate?",
+                answer: "Absolutely! BigBang operates on audited smart contracts on the Ramestta blockchain, ensuring complete transparency and security. All transactions are publicly verifiable, funds are handled automatically by code (not humans), and the system has built-in safeguards. The Ramestta blockchain offers enterprise-grade security with 99.99% uptime. Your earnings are processed instantly and automatically - no waiting for manual payments."
+              },
+              {
+                question: "Can I withdraw my earnings anytime?",
+                answer: "Yes! All earnings in BigBang are paid instantly and automatically to your wallet as they occur. There are no withdrawal limits, waiting periods, or manual approval processes. When you earn from your network's activity, the RAMA tokens are immediately transferred to your wallet. You have complete control over your funds at all times."
+              },
+              {
+                question: "What makes BigBang different from other opportunities?",
+                answer: "BigBang combines the best of DeFi innovation with proven network marketing principles: (1) Fully decentralized - no company can shut it down, (2) Transparent smart contracts - every transaction is verifiable, (3) Instant payments - no waiting for commissions, (4) Infinite earning cycles - automatic repurchasing creates unlimited potential, (5) Built on Ramestta - superior blockchain technology, and (6) Global accessibility - anyone with internet can participate."
+              },
+              {
+                question: "Do I need technical knowledge to participate?",
+                answer: "Not at all! BigBang is designed for everyone, regardless of technical background. Our user-friendly interface guides you through every step. You just need to: connect your wallet (we'll help you set one up), get some RAMA tokens (available on major exchanges), and find a sponsor (or use our community groups). The smart contracts handle everything else automatically - earning, payments, and repurchasing all happen without any action from you."
+              }
+            ].map((faq, index) => {
+              const isActive = activeFAQ === index;
+              return (
+                <div key={index} className="glass-card rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 glow-blue overflow-hidden">
+                  <button
+                    onClick={() => setActiveFAQ(isActive ? null : index)}
+                    className="w-full p-6 text-left hover:bg-gray-800/30 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-inset"
+                  >
+                    <div className="flex items-center justify-between gap-4">
+                      <h3 className="text-lg font-semibold text-gray-100 flex items-center gap-3">
+                        <HelpCircle className="w-5 h-5 text-cyan-400 flex-shrink-0" />
+                        {faq.question}
+                      </h3>
+                      <div className="flex-shrink-0">
+                        {isActive ? (
+                          <ChevronUp className="w-5 h-5 text-cyan-400 transition-transform duration-200" />
+                        ) : (
+                          <ChevronDown className="w-5 h-5 text-gray-400 transition-transform duration-200" />
+                        )}
+                      </div>
+                    </div>
+                  </button>
+                  
+                  <div className={`transition-all duration-300 ease-in-out ${
+                    isActive 
+                      ? 'max-h-96 opacity-100' 
+                      : 'max-h-0 opacity-0'
+                  } overflow-hidden`}>
+                    <div className="px-6 pb-6">
+                      <div className="border-t border-gray-700/50 pt-4">
+                        <p className="text-gray-300 leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
 
-            <div className="glass-card rounded-xl p-6 glow-green">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">How do I join BigBang and what do I need?</h3>
-              <p className="text-gray-400 leading-relaxed">
-                You need three things: (1) A Web3 wallet like MetaMask with RAMA tokens, (2) $5 USD equivalent in RAMA for registration, 
-                and (3) A sponsor (existing member's address or ID). Simply connect your wallet above, enter your sponsor's information, 
-                and the smart contract handles the rest automatically.
+          <div className="mt-12 text-center">
+            <div className="glass-card rounded-xl p-6 bg-gradient-to-r from-blue-950/30 to-purple-950/30 border border-blue-500/30 glow-blue">
+              <h3 className="text-xl font-semibold text-cyan-300 mb-3">Still Have Questions?</h3>
+              <p className="text-gray-300 mb-4">
+                Join our community and get answers from experienced BigBang members
               </p>
-            </div>
-
-            <div className="glass-card rounded-xl p-6 glow-purple">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">What happens when my orbit completes all 10 X-slots?</h3>
-              <p className="text-gray-400 leading-relaxed">
-                When your orbit fills completely, the smart contract automatically uses the collected funds to repurchase a new orbit position for you. 
-                This creates a continuous earning cycle—you don't need to do anything manually. Any excess funds beyond the repurchase amount 
-                are carried forward to your new orbit, maximizing your earning potential.
-              </p>
-            </div>
-
-            <div className="glass-card rounded-xl p-6 glow-blue">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">How and when do I receive my earnings?</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Earnings are distributed instantly and automatically to your wallet address every time someone in your 9-level network 
-                joins or completes an orbit. There's no manual withdrawal process, no minimum amounts, and no waiting periods. 
-                The smart contract sends payments directly to your wallet in real-time.
-              </p>
-            </div>
-
-            <div className="glass-card rounded-xl p-6 glow-green">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">Is BigBang safe and can I trust the smart contract?</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Absolutely. BigBang operates on an immutable smart contract deployed on the Ramestta blockchain. 
-                Every line of code is publicly verifiable, every transaction is recorded permanently, and no human or organization 
-                can modify the rules or access your funds. The contract has been audited and tested extensively for security vulnerabilities.
-              </p>
-            </div>
-
-            <div className="glass-card rounded-xl p-6 glow-purple">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">What is RAMA and why is it used instead of other cryptocurrencies?</h3>
-              <p className="text-gray-400 leading-relaxed">
-                RAMA is the native cryptocurrency of the Ramestta blockchain, designed specifically for fast, low-cost transactions. 
-                It features built-in price stability mechanisms and instant liquidity on decentralized exchanges. 
-                Using RAMA ensures your BigBang transactions are processed quickly and cheaply while maintaining consistent USD-equivalent values.
-              </p>
-            </div>
-
-            <div className="glass-card rounded-xl p-6 glow-blue">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">Can I lose money in BigBang?</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Your initial $5 investment is used to enter the system and begin earning from your network. 
-                Like any business opportunity, success depends on your effort in building a network. However, the automatic repurchase system 
-                means that successful orbits continuously create new earning opportunities, and the transparent smart contract ensures 
-                no funds can be misappropriated or lost to fraud.
-              </p>
-            </div>
-
-            <div className="glass-card rounded-xl p-6 glow-green">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">Is there a mobile app or do I need a computer?</h3>
-              <p className="text-gray-400 leading-relaxed">
-                BigBang is a web-based application that works perfectly on any device with an internet connection. 
-                You can access your dashboard, view your earnings, and manage your network from your smartphone, tablet, or computer. 
-                Just use a Web3-enabled browser or the built-in browser in wallets like MetaMask or Trust Wallet.
-              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <button className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 font-medium glow-blue">
+                  Join Telegram Community
+                </button>
+                <button className="px-6 py-3 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-800/50 hover:border-gray-500 transition-all duration-300 font-medium">
+                  Contact Support
+                </button>
+              </div>
             </div>
           </div>
         </div>

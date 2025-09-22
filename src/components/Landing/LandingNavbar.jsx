@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Circle, Menu, X, Rocket, History, Zap, TrendingUp, HelpCircle, Users } from 'lucide-react';
 
 const LandingNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const navigate = useNavigate();
 
   const menuItems = [
     { id: 'home', label: 'Home', icon: Circle },
@@ -25,6 +27,12 @@ const LandingNavbar = () => {
       });
     }
     setIsOpen(false); // Close mobile menu after clicking
+  };
+
+  // Handle launch app navigation
+  const handleLaunchApp = () => {
+    navigate('/app');
+    setIsOpen(false);
   };
 
   // Track active section based on scroll position
@@ -86,7 +94,7 @@ const LandingNavbar = () => {
           {/* Launch App Button */}
           <div className="hidden md:block">
             <button
-              onClick={() => scrollToSection('home')}
+              onClick={handleLaunchApp}
               className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white px-6 py-2 rounded-lg transition-all duration-300 font-medium text-sm glow-purple"
             >
               <Rocket className="w-4 h-4" />
@@ -133,10 +141,7 @@ const LandingNavbar = () => {
             {/* Mobile Launch App Button */}
             <div className="pt-4 border-t border-gray-700/50">
               <button
-                onClick={() => {
-                  scrollToSection('home');
-                  setIsOpen(false);
-                }}
+                onClick={handleLaunchApp}
                 className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white px-6 py-3 rounded-lg transition-all duration-300 font-medium glow-purple"
               >
                 <Rocket className="w-5 h-5" />
