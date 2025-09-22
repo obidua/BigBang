@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { WalletButton } from '../components/WalletConnection/WalletButton';
 import { ViewedUserProfile } from '../components/ViewedUserProfile';
 import { useStore } from '../../store/useStore';
+import LandingNavbar from '../components/Landing/LandingNavbar';
 
 const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 
@@ -71,11 +72,13 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-purple-950 relative overflow-hidden">
+      <LandingNavbar />
+      
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=&#39;60&#39; height=&#39;60&#39; viewBox=&#39;0 0 60 60&#39; xmlns=&#39;http://www.w3.org/2000/svg&#39;%3E%3Cg fill=&#39;none&#39; fill-rule=&#39;evenodd&#39;%3E%3Cg fill=&#39;%23ffffff&#39; fill-opacity=&#39;0.02&#39;%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;1&#39;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
 
       {/* Hero Section */}
-      <section className="relative z-10 min-h-screen flex items-center justify-center px-4 py-20">
+      <section id="home" className="relative z-10 min-h-screen flex items-center justify-center px-4 py-20 pt-16">
         <div className="max-w-6xl mx-auto text-center">
           <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-8 glow-blue animate-pulse shadow-2xl">
             <Circle className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
@@ -177,7 +180,7 @@ const LandingPage = () => {
       </section>
 
       {/* The Evolution of Value Section */}
-      <section className="relative z-10 py-20 px-4 bg-gradient-to-r from-gray-900/50 to-blue-900/30">
+      <section id="evolution" className="relative z-10 py-20 px-4 bg-gradient-to-r from-gray-900/50 to-blue-900/30">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <div className="w-16 h-16 bg-gradient-to-r from-amber-400 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 glow-green">
@@ -301,7 +304,7 @@ const LandingPage = () => {
       </section>
 
       {/* Why Ramestta Blockchain Section */}
-      <section className="relative z-10 py-20 px-4">
+      <section id="ramestta" className="relative z-10 py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6 glow-purple">
@@ -443,7 +446,7 @@ const LandingPage = () => {
       </section>
 
       {/* How BigBang Works Section - Enhanced */}
-      <section className="relative z-10 py-20 px-4 bg-gradient-to-r from-blue-900/30 to-purple-900/30">
+      <section id="how-it-works" className="relative z-10 py-20 px-4 bg-gradient-to-r from-blue-900/30 to-purple-900/30">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 glow-blue">
@@ -557,7 +560,7 @@ const LandingPage = () => {
       </section>
 
       {/* Enhanced Earning Potential Section */}
-      <section className="relative z-10 py-20 px-4">
+      <section id="earning" className="relative z-10 py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 glow-green">
@@ -696,7 +699,7 @@ const LandingPage = () => {
       </section>
 
       {/* Enhanced FAQ Section */}
-      <section className="relative z-10 py-20 px-4 bg-gradient-to-r from-gray-900/50 to-blue-900/30">
+      <section id="faq" className="relative z-10 py-20 px-4 bg-gradient-to-r from-gray-900/50 to-blue-900/30">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-6">
