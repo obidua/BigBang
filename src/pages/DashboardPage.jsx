@@ -14,9 +14,9 @@ import { ViewedUserProfile } from '../components/ViewedUserProfile';
 import Register from '../components/Registration/Register';
 import SmarContract from '../components/SmarContract';
 import { Copy, ExternalLink, User, MapPin, Link, Code } from 'lucide-react';
-import { useStore } from '../store/useStore';
+import { useStore } from '../../store/useStore';
 import { useAppKitAccount, useDisconnect } from '@reown/appkit/react';
-import { copyToClipboard } from '../utils/helper';
+import { copyToClipboard } from '../../utils/helper';
 
 const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 
